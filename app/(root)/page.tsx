@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HomeRightSider from "@/components/HomeRightSider";
+import NoAccountsAlert from "@/components/NoAccountsAlert";
 import TotalBalanceDisplay from "@/components/TotalBalanceDisplay";
 import { RedirectToSignIn } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
@@ -24,6 +25,8 @@ export default async function Home() {
             }
           />
         </header>
+        {/* Check if no accounts connected */}
+        <NoAccountsAlert />
         <TotalBalanceDisplay
           accounts={[]}
           totalBanks={1}
