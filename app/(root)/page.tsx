@@ -1,14 +1,15 @@
 import Header from "@/components/Header";
 import HomeRightSider from "@/components/HomeRightSider";
 import TotalBalanceDisplay from "@/components/TotalBalanceDisplay";
+import { RedirectToSignIn } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
-export default function Home() {
-  const user = {
-    $id: "123123",
-    firstName: "Mads",
-    lastName: "Brandt",
-    email: "some@email.com",
-  };
+export default async function Home() {
+  const user = await currentUser();
+
+  if (!user) {
+    return <RedirectToSignIn />;
+  }
 
   return (
     <section className="home">

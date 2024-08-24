@@ -1,9 +1,8 @@
 import { formatAmount } from "@/lib/utils";
 import React from "react";
-import CountUp from "react-countup";
 import AnimatedCounter from "./AnimatedCounter";
-import DoughnutChart from "./DoughnutChart";
 import { Account } from "@/types/types";
+import { DoughnutChart } from "./charts";
 
 type Props = {
   accounts: Account[];
@@ -27,9 +26,9 @@ export default function TotalBalanceDisplay({
         <div className="flex flex-col gap-2">
           <p className="account-balance-label">Total balance</p>
 
-          <p className="flex-center gap-2 account-balance-total">
+          <div className="flex-center gap-2 account-balance-total">
             <AnimatedCounter amount={totalBalance} />
-          </p>
+          </div>
         </div>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function Sidebar({ user }: Props) {
             alt="logo"
             className="size-[24px] max-xl:size-14"
           />
-          <h1 className="main-sidebar-logo">Maze Bank</h1>
+          <h1 className="main-sidebar-logo">Horizon Bank</h1>
         </Link>
         {sidebarLinks.map((item) => {
           const itemIsActive =

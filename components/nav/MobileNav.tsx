@@ -13,6 +13,7 @@ import Link from "next/link";
 import { sidebarLinks } from "@/constants";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Menu } from "lucide-react";
 
 type Props = { user: User };
 
@@ -22,13 +23,7 @@ export default function MobileNav({ user }: Props) {
     <section className="w-full max-w-[264px]">
       <Sheet>
         <SheetTrigger>
-          <Image
-            src={"/icons/hamburger.svg"}
-            width={30}
-            height={30}
-            alt="menu"
-            className="cursor-pointer"
-          />
+          <Menu className="cursor-pointer" height={30} width={30} />
         </SheetTrigger>
         <SheetContent side={"left"} className="border-none bg-white">
           <Link

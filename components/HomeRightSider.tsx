@@ -1,8 +1,8 @@
-import { User } from "@/types/types";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import CreditCard from "./CreditCard";
+import { User } from "@clerk/nextjs/server";
 
 type Props = {
   user: User;
@@ -22,7 +22,7 @@ export default function HomeRightSider({
         <div className="profile">
           <div className="profile-img">
             <span className="text-5xl font-bold text-emerald-500">
-              {user.firstName[0]}
+              {user.firstName?.[0] || "G"}
             </span>
           </div>
 
@@ -30,7 +30,9 @@ export default function HomeRightSider({
             <h1 className="profile-name">
               {user.firstName} {user.lastName}
             </h1>
-            <p className="profile-email">{user.email}</p>
+            <p className="profile-email">
+              {user.primaryEmailAddress?.emailAddress}
+            </p>
           </div>
         </div>
       </section>
@@ -55,7 +57,7 @@ export default function HomeRightSider({
               />
             </div>
             {creditCards[1] ? (
-              <div className="absolute right-0 top-12 z-0 hover:z-20 hover:top-16">
+              <div className="absolute right-0 top-16 z-0 hover:z-20 hover:top-16">
                 <CreditCard
                   key={creditCards[1].$id}
                   account={creditCards[1]}
